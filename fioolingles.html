@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Hidden Path</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #1e3c72, #2a5298);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+            max-width: 900px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        h1, h2 {
+            color: #ffcc00;
+        }
+        .exercise {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        .input-exercise {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        .input-exercise p {
+            margin: 5px 0;
+        }
+        button {
+            background-color: #ffcc00;
+            padding: 12px 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background-color: #c2185b;
+        }
+        .answer {
+            background-color: #4caf50;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        .incorrect {
+            background-color: #d32f2f;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>The Hidden Path</h1>
+    <h2>Story</h2>
+    <p>One evening, Daniel was exploring an old bookstore when he found a peculiar book titled "The Hidden Path." As he flipped through its pages, a small map fell out. Intrigued, he decided to follow the clues.</p>
+    <p>He spent the night deciphering the symbols on the map, which led him to an abandoned lighthouse at the edge of town. The next morning, he ventured there, feeling both nervous and excited.</p>
+    <p>Inside the lighthouse, he found an old chest locked with a riddle. He solved it and uncovered a collection of letters from a long-lost explorer, revealing a hidden treasure buried nearby. Daniel realized that this adventure was just the beginning of something even greater.</p>
+    
+    <h2>Interactive Exercise 1: Multiple Choice</h2>
+    <div class="input-exercise">
+        <p>1. Where did Daniel find the map?</p>
+        <input type="radio" name="q1" value="bookstore"> a) In the bookstore<br>
+        <input type="radio" name="q1" value="lighthouse"> b) In the lighthouse<br>
+        <input type="radio" name="q1" value="chest"> c) In the chest<br>
+    </div>
+    
+    <button onclick="checkAnswers()">Submit Answers</button>
+    <p id="results"></p>
+
+    <h2>Interactive Exercise 2: Fill in the Blanks</h2>
+    <div class="input-exercise">
+        <p>Daniel found a <input type="text" id="blank1" placeholder="Enter here"> in the bookstore.</p>
+        <p>The clues led him to a mysterious <input type="text" id="blank2" placeholder="Enter here">.</p>
+    </div>
+    <button onclick="checkBlanks()">Check Answers</button>
+    <p id="blankResults"></p>
+
+    <h2>Team Members</h2>
+    <ul>
+        <li>Corona Barraza Mahonri</li>
+        <li>Mendivil Felix Roberto</li>
+        <li>Ramírez Fuentes Saúl Rodrigo</li>
+        <li>Fiool Jacott Diego</li>
+        <li>Mejía Rodriguez Kevyn Fernando</li>
+    </ul>
+
+    <h2>Course Details</h2>
+    <p><strong>Professor:</strong> Moises Galaz</p>
+    <p><strong>Subject:</strong> English II</p>
+    <p><strong>Group/Shift:</strong> 204-M</p>
+</div>
+
+<script>
+    function checkAnswers() {
+        let score = 0;
+        let q1 = document.querySelector('input[name="q1"]:checked');
+
+        if (q1 && q1.value === "bookstore") {
+            score++;
+        }
+
+        document.getElementById("results").innerText = "Score: " + score + "/1";
+    }
+
+    function checkBlanks() {
+        let blank1 = document.getElementById("blank1").value.toLowerCase();
+        let blank2 = document.getElementById("blank2").value.toLowerCase();
+        let correct1 = "map";
+        let correct2 = "lighthouse";
+
+        let score = 0;
+        if (blank1 === correct1) score++;
+        if (blank2 === correct2) score++;
+
+        document.getElementById("blankResults").innerText = "Score: " + score + "/2";
+    }
+</script>
+
+</body>
+</html>
+
